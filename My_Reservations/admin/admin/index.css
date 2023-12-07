@@ -1,0 +1,42 @@
+.main{
+    
+    width: 40%;
+     background-color: #92c6fc;
+    box-shadow: 1px 1px 10px black;
+    margin-top: 45px;
+    padding: 10px;
+}
+h2{
+    font-family: 'Cairo', sans-serif;
+}
+input{
+    margin-bottom: 10px;
+    width: 30%;
+    padding: 5px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+button{
+    border: none;
+    padding: 10px;
+    width: 15%;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: #1AC15C;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+label{
+    padding: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: #0097ff;
+    color: black;
+}
+a{
+    text-decoration: none;
+    font-size: 20px;
+    color:tomato;
+    font-weight: bold;
+}
