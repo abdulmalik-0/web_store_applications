@@ -13,7 +13,13 @@ if(isset($_POST['submit'])){
    if(mysqli_num_rows($select) > 0){
       $row = mysqli_fetch_assoc($select);
       $_SESSION['user_id'] = $row['id'];
-      header('location:index.php');
+      if($row['token'] == null){
+         header('location:index.php');
+      }
+      else{
+         header('location:verification.php');
+      }
+      
    }else{
       $message[] = 'incorrect password or email!';
    }
@@ -56,7 +62,6 @@ if(isset($message)){
       <input type="password" name="password" required placeholder="كلمة المرور" class="box">
       <input type="submit" name="submit" class="btn" value="تسجيل الدخول">
       <p>هل تملك حساب بالفعل؟ <a href="register.php"> حساب جديد</a></p>
-      <?php echo "<a href='".$client->createAuthUrl()."'>Google Login</a>"; ?>
    </form>
 
 </div>
