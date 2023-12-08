@@ -173,14 +173,14 @@ body{
    align-items: flex-end;
 }
 
-.container .cart .box-container{
+.container .products .box-container{
    display: flex;
    flex-wrap: wrap;
    gap:15px;
    justify-content: center;
 }
 
-.container .cart .box-container .box{
+.container .products .box-container .box{
    text-align: center;
    border-radius: 5px;
    box-shadow: var(--box-shadow);
@@ -191,17 +191,17 @@ body{
    width: 300px;
 }
 
-.container .cart .box-container .box img{
+.container .products .box-container .box img{
    height: 200px;
 }
 
-.container .cart .box-container .box .name{
+.container .products .box-container .box .name{
    font-size: 15px;
    color:var(--black);
    padding:5px 0;
 }
 
-.container .cart .box-container .box .price{
+.container .products .box-container .box .price{
    position: absolute;
    top:20px; left:0px;
    transform: rotateZ(-40deg);
@@ -212,7 +212,7 @@ body{
    font-size: 20px;
 }
 
-.container .cart .box-container .box input[type="number"]{
+.container .products .box-container .box input[type="number"]{
    margin:10px 0;
    width: 100%;
    border:var(--border);

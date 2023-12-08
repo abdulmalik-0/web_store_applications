@@ -23,7 +23,7 @@ if(isset($_POST['update'])){
         };
     $image_location = $_FILES['image']['tmp_name'];    
     move_uploaded_file($image_location,'images/'. $image_name);
-    $image_up = "http://localhost/project/My_Reservations/admin/admin/images/".$image_name;
+    $image_up = "http://localhost/proj/My_Reservations/admin/admin/images/".$image_name;
     $update = "UPDATE list SET name='$NAME' , price='$PRICE', image='$image_up' WHERE id=$ID";
     mysqli_query($conn, $update);
 

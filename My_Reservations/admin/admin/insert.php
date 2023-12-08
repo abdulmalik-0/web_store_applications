@@ -22,7 +22,7 @@ if(isset($_POST['upload'])){
     };
     $image_location = $_FILES['image']['tmp_name'];
     move_uploaded_file($image_location,'images/'. $image_name);
-    $image_up = "http://localhost/project/My_Reservations/admin/admin/images/".$image_name;
+    $image_up = "http://localhost/proj/My_Reservations/admin/admin/images/".$image_name;
     $insert = "INSERT INTO  list (name,r_id, price ,image) VALUES ('$NAME','$admin_id','$PRICE','$image_up')";
     echo" $image_name";
     mysqli_query($conn, $insert);

@@ -38,7 +38,7 @@ $admin_id = $_SESSION['admin_id'];
     <center>
         <h3>لوحة تحكم الادمن</h3><br>
         <a href='index.php? id=$row[id]' class='btn btn-primary'>رجوع لصفحة الاضافه</a>
-        <a href='http://localhost/project/My_Reservations/admin/index.php? id=$row[id]' class='btn btn-primary'>رجوع للصفحة الرئيسية</a>
+        <a href='http://localhost/proj/My_Reservations/admin/index.php? id=$row[id]' class='btn btn-primary'>رجوع للصفحة الرئيسية</a>
     </center>
     <?php
     include('config.php');
@@ -52,7 +52,6 @@ $admin_id = $_SESSION['admin_id'];
                 <div class='card-body'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
-                    <p class='card-text'>$row[quantity]</p>
                     <a href='delete.php? id=$row[id]' class='btn btn-danger'>حذف منتج</a>
                     <a href='update.php? id=$row[id]' class='btn btn-primary'>تعديل منتج</a>
                 </div>

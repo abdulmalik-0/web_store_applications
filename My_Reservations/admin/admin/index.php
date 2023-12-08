@@ -14,7 +14,7 @@ if(!isset($admin_id)){
 if(isset($_GET['logout'])){
    unset($admin_id);
    session_destroy();
-   header('location:http://localhost/project/My_Reservations/admin/login.php');
+   header('location:http://localhost/proj/My_Reservations/admin/login.php');
 };
 ?>
 
