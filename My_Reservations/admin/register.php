@@ -1,13 +1,41 @@
 <?php
 
 include 'config.php';
-
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require 'phpmailer/src/Exception.php';
+require 'phpmailer/src/PHPMailer.php';
+require 'phpmailer/src/SMTP.php';
 if(isset($_POST['submit'])){
-
+   $msg= 'verification code';
+   $char_string = '0123456789abcdefghijklmnopqrstuvwxyz';
+   $length = 6;
+   $token_verification = '';
+   while (strlen($token_verification) < $length) {
+   $token_verification.= $char_string[random_int(0, strlen($char_string))];
+   }
+   
    $name = mysqli_real_escape_string($conn, $_POST['name']);
    $email = mysqli_real_escape_string($conn, $_POST['email']);
    $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
    $cpass = mysqli_real_escape_string($conn, md5($_POST['cpassword']));
+
+   $mail = new PHPMailer(true);
+   $mail->isSMTP();
+   $mail->Host = 'smtp.gmail.com';
+   $mail->SMTPAuth = true;
+   $mail->Username = 'myreservations01@gmail.com';
+   $mail->Password = 'qxofafecsgeguypg';
+   $mail->SMTPSecure = 'ssl';
+   $mail->Port = 465;
+   $mail->setFrom('myreservations01@gmail.com');
+   $mail->addAddress($email);
+   $mail->isHTML (true);
+   $mail->Subject = $msg;
+   $mail->Body = $token_verification;
+   
+
+
 
    $select = mysqli_query($conn, "SELECT * FROM `admin` WHERE email = '$email' or r_name = '$name'") or die('query failed1');
 
@@ -15,15 +43,16 @@ if(isset($_POST['submit'])){
       $message[] = 'admin already exist!';
    }
    elseif($cpass==$pass){
-      mysqli_query($conn, "INSERT INTO `admin`(r_name, email, password) VALUES('$name', '$email', '$pass')") or die('query failed2');
+      mysqli_query($conn, "INSERT INTO `admin`(r_name, email, password ,token) VALUES('$name', '$email', '$pass' ,'$token_verification')") or die('query failed2');
       $message[] = 'registered successfully!';
+      $mail->send();
       header('location:login.php');
    }
    else{
       $message[] = 'password is not identical';
    }
 }
-
+   
 ?>
 
 <!DOCTYPE html>
