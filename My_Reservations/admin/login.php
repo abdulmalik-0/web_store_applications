@@ -61,6 +61,8 @@ if(isset($message)){
       <input type="email" name="email" required placeholder="البريد الالكتروني" class="box">
       <input type="password" name="password" required placeholder="كلمة المرور" class="box">
       <input type="submit" name="submit" class="btn" value="تسجيل الدخول">
+      <a href='http://localhost/proj/My_Reservations/index.php?' class='btn btn-primary'>الصفحة الرئيسية</a>
+
       <p>هل تملك حساب بالفعل؟ <a href="register.php"> حساب جديد</a></p>
    </form>
 

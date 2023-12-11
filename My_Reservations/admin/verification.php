@@ -5,13 +5,12 @@ session_start();
 $admin_id = $_SESSION['admin_id'];
 
 if(isset($_POST['submit'])){
-    $verifi= mysqli_query($conn, "SELECT token FROM `admin` WHERE id = '$admin_id'") or die('query failed');
     $select = mysqli_query($conn, "SELECT * FROM `admin` WHERE id = '$admin_id'") or die('query failed');
  
     if(mysqli_num_rows($select) > 0){
        $row = mysqli_fetch_assoc($select);
-       $_SESSION['admin_id'] = $row['id'];
-       if($row['token'] = 'code'){
+
+       if($row['token'] == $_POST['code']){
         $veri = mysqli_query($conn, "UPDATE `admin` SET `token`= null WHERE id = '$admin_id'") or die('query failed');
         header('location:index.php');
        }
@@ -20,7 +19,7 @@ if(isset($_POST['submit'])){
        }
 
     }else{
-       $message[] = 'incorrect code';
+      header('location:login.php');
     }
  
  }
