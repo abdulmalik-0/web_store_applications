@@ -63,7 +63,7 @@ if(isset($message)){
       <input type="submit" name="submit" class="btn" value="تسجيل الدخول">
       <a href='http://localhost/proj/My_Reservations/index.php?' class='btn btn-primary'>الصفحة الرئيسية</a>
 
-      <p>هل تملك حساب بالفعل؟ <a href="register.php"> حساب جديد</a></p>
+      <p>هل لا تملك حساب بالفعل؟ <a href="register.php"> حساب جديد</a></p>
    </form>
 
 </div>
