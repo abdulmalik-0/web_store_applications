@@ -171,7 +171,6 @@ if(isset($message)){
          <td><?php echo $grand_total; ?>$</td>
          <td> 
          <a href="index.php?delete_all" onclick="return confirm('حذف كل المنتجات من العربة?');" class="delete-btn <?php echo ($grand_total > 1)?'':'disabled'; ?>">حذف الكل</a>
-         <a href="index.php?conform" onclick="return confirm('هل انت متأكد?');" class="option-btn <?php echo ($grand_total > 1)?'':'disabled'; ?>">تاكيد الطلب</a>
          </td>
          </tr>
    </tbody>
