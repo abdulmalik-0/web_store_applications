@@ -8,12 +8,9 @@ require 'phpmailer/src/PHPMailer.php';
 require 'phpmailer/src/SMTP.php';
 if(isset($_POST['submit'])){
    $msg= 'verification code';
-   $char_string = '0123456789abcdefghijklmnopqrstuvwxyz';
-   $length = 6;
-   $token_verification = '';
-   while (strlen($token_verification) < $length) {
-   $token_verification.= $char_string[random_int(0, strlen($char_string))];
-   }
+  
+   $token_verification = createToken(6);
+  
    
    $name = mysqli_real_escape_string($conn, $_POST['name']);
    $email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -32,7 +29,7 @@ if(isset($_POST['submit'])){
    $mail->addAddress($email);
    $mail->isHTML (true);
    $mail->Subject = $msg;
-   $mail->Body = $token_verification;
+   $mail->Body = getBody($token_verification);
    
 
 
@@ -52,7 +49,22 @@ if(isset($_POST['submit'])){
       $message[] = 'password is not identical';
    }
 }
-   
+function getBody($token) {
+   return "
+   <h1 style='text-align: center;
+   witdh:100%;'>welcome</h1>
+  <p>$token</p>
+  ";
+ }
+ function createToken($length) {
+   $char_string = '0123456789abcdefghijklmnopqrstuvwxyz';
+   $token_verification = '';
+   while (strlen($token_verification) < $length) {
+   $token_verification.= $char_string[random_int(0, strlen($char_string))];
+   } 
+   return $token_verification;
+ }
+
 ?>
 
 <!DOCTYPE html>
