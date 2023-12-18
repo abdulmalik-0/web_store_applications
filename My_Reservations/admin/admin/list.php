@@ -6,6 +6,8 @@ include 'config.php';
 session_start();
 $admin_id = $_SESSION['admin_id'];
 ?>
+   <link rel="icon" href="http://localhost/proj/My_Reservations/admin/admin/logo.png" type="image/x-icon">
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

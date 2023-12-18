@@ -21,6 +21,8 @@ if(isset($_GET['logout'])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" href="http://localhost/proj/My_Reservations/admin/admin/logo.svg" type="image/x-icon">
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,7 +39,7 @@ if(isset($_GET['logout'])){
 </div>
             <form action="insert.php" method="post" enctype="multipart/form-data">
                 <h2>موقع حجوزاتي</h2>
-                <div class="main"><img src="logo1.png" alt="logo" width="300px" height="250px"></div>
+                <div class="main"><img src="logo1.svg" alt="logo" width="100%" height="250px"></div>
                 <br>
                 <input type="text" name='name' placeholder="اسم المنتج">
                 <br>

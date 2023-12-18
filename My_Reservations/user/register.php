@@ -70,6 +70,8 @@ function getBody($token) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" href="http://localhost/proj/My_Reservations/admin/admin/logo.svg" type="image/x-icon">
+
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -97,14 +99,30 @@ if(isset($message)){
 
    <form action="" method="post">
       <h3>انشاء حساب جديد</h3>
-      <input type="text" name="name" required placeholder="اسم السمتخدم" class="box">
+      <p>اسم مقترح</p><br> 
+      <span id="txtHint"></span>
+      <input type="text" name="name" required placeholder="اسم السمتخدم" class="box" id="txt1" onkeyup="showHint(this.value)">
       <input type="email" name="email" required placeholder="البريد الالكتروني" class="box">
       <input type="password" name="password" required placeholder="كلمة المرور" class="box">
       <input type="password" name="cpassword" required placeholder="تأكيد كلمة المرور" class="box">
       <input type="submit" name="submit" class="btn" value="تسجيل حساب">
       <p>هل لديك حساب؟ <a href="login.php"> تسجيل دخول</a></p>
    </form>
-
+   <script>
+function showHint(str) {
+  if (str.length == 0) { 
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  }
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("txtHint").innerHTML =
+    this.responseText;
+  }
+  xhttp.open("GET", "gethint.php?q="+str);
+  xhttp.send();   
+}
+</script>
 </div>
 
 </body>
